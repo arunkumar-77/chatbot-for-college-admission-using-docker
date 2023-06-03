@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        td>img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+        }
+    </style>
+    <title>Placement</title>
+</head>
+
+<body>
+
+    <h1 class="display-5 my-5 text-center">Compare Page in JS</h1>
+    <div class="container">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
+                <tr class="bg-light">
+                    <th>Select College</th>
+                    <th width="300px">
+                        <select class="form-control" id="select1" onchange="item1(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                    <th width="300px">
+                        <select class="form-control" id="select2" onchange="item2(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>College Logo</th>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="logo1" alt=" ">
+                    </td>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="logo2" alt=" ">
+                    </td>
+                </tr>
+                <tr>
+                    <th>UG Courses</th>
+                    <td id="UG1">N/A</td>
+                    <td id="UG2">N/A</td>
+                </tr>
+                <tr>
+                    <th>PG Courses</th>
+                    <td id="PG1">N/A</td>
+                    <td id="PG2">N/A</td>
+                </tr>
+                <tr>
+                    <th>Inter-greated Courses</th>
+                    <td id="IG1">N/A</td>
+                    <td id="IG2">N/A</td>
+                </tr>
+                <tr>
+                    <th>PHD Courses</th>
+                    <td id="PHD1">N/A</td>
+                    <td id="PHD2">N/A</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
+    <script>
+        var Course = [{
+    "id": 0,
+    "CollegeName": "",
+    "UGCourse": "",
+    "PGCourse":"",
+    "Intergreated":"",
+    "Phdcourse":"",
+    "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+
+}, 
+{
+    "id": 1,
+    "CollegeName": "Anna University",
+    "UGCourse": "B.E Civil Engineering (Tamil and English Medium)<br>B.E Geo Informatics<br>B.E Mechanical Engineering (Tamil and English Medium)<br>B.E Material Science and Engineering<br>B.E Industrial Engineering<br>B.E Manufacturing Engineering<br>B.E Mining Engineering<br>B.E Printing and Packaging Technology<br>B.E Electrical and Electronics Engineering<br>B.E Electronics and Communication Engineering<br>B.E Biomedical Engineering<br>B.E. Computer Science and Engineering<br>B.Tech. Information Technology",
+    "PGCourse":"M.E. Structural Engineering<br>M.E. Construction Engineering and Management<br>M.E. Irrigation Water Management<br>M.E. Hydrology and Water Resources Engineering<br>M.E. Environmental Engineering<br>M.E. Transportation Engineering<br>M.E. Soil Mechanics and Foundation Engineering<br>M.E. Environmental Management<br>M.E. Remote Sensing and Geomatics<br>M.E. Internal Combustion Engineering<br>M.E. Energy Engineering<br>M.E. Thermal Engineering (with specialization in Refrigeration and Air Conditioning)<br>M.E. Engineering Design<br>M.E. Manufacturing Systems and Management<br>M.E. Product Design and Development<br>M.E. Solar Energy<br>M.E. Industrial Engineering<br>M.E. Quality Engineering and Management<br>M.E. Computer Integrated Manufacturing<br>M.E. Printing and Packaging Technology<br>M.E. Power Systems Engineering<br>M.E. Power Electronics and Drives<br>M.E. Embedded System Technologies<br>M.E. High Voltage Engineering<br>M.E. Control and Instrumentation Engineering<br>M.E. Power Engineering and Management<br>M.E. Communication Systems<br>M.E. VLSI Design<br>M.E. Medical Electronics<br>M.E. Bio Medical Engineering<br>M.E. Applied Electronics<br>M.E. Computer Science and Engineering<br>M.E. Software Engineering<br>M.E. Computer Science and Engineering (Specialization in Operations Research)<br>M.E. Computer Science and Engineering (Specialization in Big Data Analytics)<br>M.Tech. Information Technology<br>M.Tech. Information Technology (Specialization in Multimedia)<br>M.C.A. Master of Computer Applications<br>M.B.A. Master of Business Administration<br>M.B.A. Tourism Management<br>M.Sc. Applied Chemistry<br>M.Tech. Polymer Science and Engineering<br>M.Phil. English<br>M.Sc. Applied Geology<br>M.Sc. Applied Mathematics<br>M.Phil. Mathematics<br>M.Sc. Electronic Media",
+    "Intergreated":"M.Sc. Computer Science<br>M.Sc. Information Technology<br>M.Sc. Electronic Media ",
+    "Phdcourse":"Ph.D. Degree in Engineering/ Technology<br>Ph.D. Degree in Science and Humanities<br>Ph.D. Degree in Management Sciences<br>Ph.D. Degree in Architecture and Planning",
+    "Logo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDaNC8Wo7DYnEis70_4YzfOxnoec_tJPGGRAdC57yCNQ&s"
+    
+}, {
+    "id": 2,
+    "CollegeName": "PSG Technolgy",
+    "UGCourse": "B.Sc Applied SCience<br>B.Tech. Biotechnology<br>B.Tech. biomedical engineering<br>B.Tech.Corrosion Engineering<br>B.Tech.Fuel cells<br>B.Tech. Polymer technology<br>B.Tech. Nanomaterials chemistry<br>B.Tech. Electrochemical sensors<br>BE civil engineering<br>B.E CSE<br>B.E ECE<br>B.E EEE",
+    "PGCourse":"ME structural Engineering<br>ME Infrastructure Engineering<br>M.E CSE<br>M.E Software Engineering<br>M.E ECE<br>M.E Communication systems<br>M.E VLSI Design<br>M.E Wireless Communication<br>M.Tech nanoscience and technology<br>M.E Applied electronics<br>M.E Power electronics and drives<br>M.E embedded and real time systems",
+    "Intergreated":"MSc Fashion Design<br>M.Sc Software Systems<br>M.Sc Theoretical Computer Science<br>M.Sc Data SCience<br>M.Sc Cyber Security<br>M.Sc Applied mathematics",
+    "Phdcourse":"Ph.d. Civil engineering",
+    "Logo":"https://upload.wikimedia.org/wikipedia/en/e/eb/PSG_College_of_Technology_logo.png"
+}, {
+    "id": 3,
+    "CollegeName": "SSN Technology",
+    "UGCourse": "B.E Computer Science and Engineering<br>B.E Civil<br>B.E EEE<br>B.E ECE<br>B.Tech Information Technology<br>B.E Mechanical Engineering <br>B.Tech Chemical Engineering<br>B.E Biomedical Engineering",
+    "PGCourse":"Communication Systems<br>M.E Computer Science & Engineering<br>M.E Applied Electronics <br>M.E Power Electronics & Devices <br>M.Tech Information Technology <br>M.E VLSI Design<br>M.E Energy Engineering<br>M.E Manufacturing Engineering<br>M.E Medical Electronics<br>M.Tech Environment Science & Technology<br>Master Of Business Administration",
+    "Intergreated":"<center>-</center>",
+    "Phdcourse":"<center>-</center>",
+    "Logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Sri_Sivasubramaniya_Nadar_College_of_Engineering.svg/800px-Sri_Sivasubramaniya_Nadar_College_of_Engineering.svg.png"
+
+}, {
+    "id": 4,
+    "CollegeName": "CIT",
+    "UGCourse": "B.E Civil Engineering<br>B.E. Mechanical Engineering<br>B.E. Mechanical Engineering<br>B.E. in Electrical and Electronics Engineering<br>B.E Electronics & Communication Engineering<br>B.E Computer Science & Engineering<br>B.Tech Information Technology<br>B.Tech. Chemical Engineering<br>B.Tech Artificial Intelligence and Data Science<br>BE./ B.Tech. General Chemistry<br>BSc., Applied Sciences",
+    "PGCourse":"M.E. Structural Engineering<br>M.E.Advanced Manufacturing Technology<br>M.E. Embedded and Real Time Systems <br>M.E. Applied Electronics<br>M.E Communication Engineering<br>M.E. Computer Science and Engineering<br>M.C.A.<br>M.B.A.",
+    "Intergreated":"<center>-</center>",
+    "Phdcourse":"Ph.D Chemistry<br>Ph.D Mechanical Engineering<br>Ph.D Information and Communication Engineering",
+    "Logo":"https://upload.wikimedia.org/wikipedia/en/1/17/Coimbatore_Institute_of_Technology_logo.png"
+},
+{
+    "id": 5,
+    "CollegeName": "Thiagarajar College of Engineering",
+    "UGCourse": "B.E. Civil Engineering<br>B.E. Mechanical Engineering<br>B.E. Electrical and Electronics Engineering<br>B.E. Electronics and Communication Engineering<br>B.E. Computer Science and Engineering    <br>B.E. Mechatronics<br>B.Tech. Information Technology<br>B.Tech. Computer Science and Business Systems<br>B.Arch. Architecture",
+    "PGCourse":"M.E. Structural Engineering<br>M.E. Environmental Engineering<br>M.E. Infrastructure Engineering and Management<br>M.E. Industrial Engineering<br>M.E. Power System Engineering<br>M.E. Communication Systems<br>M.E. Computer Science and Engineering<br>M.Arch. Architecture<br>M.C.A. Computer Applications",
+    "Intergreated":"Msc DataScience",
+    "Phdcourse":"Ph.D Computer Science and Engineering<br>Ph.D. Electrical and Electronics Engineering<br>Ph.D. Electronics and Communication Engineering<br>Ph.D. Civil Engineering<br>Ph.D. Mechanical Engineering<br>Ph.D. Chemistry <br>Ph.D. Physics",
+    "Logo":"https://upload.wikimedia.org/wikipedia/en/3/32/Thiagarajar_College_of_Engineering_logo.png"
+}]
+for(var i=1; i < Course.length;i++) {
+    document.getElementById("select1").innerHTML +=`
+    <option value="${i}">${Course[i].CollegeName}</option>
+ `;
+ document.getElementById("select2").innerHTML +=`
+    <option value="${i}">${Course[i].CollegeName}</option>
+ `;
+}
+function item1(a) {
+  var select2 = document.getElementById("select2").value;
+  if (a!=select2){
+  document.getElementById("logo1").src=Course[a].Logo
+  document.getElementById("UG1").innerHTML=Course[a].UGCourse
+  document.getElementById("PG1").innerHTML=Course[a].PGCourse
+  document.getElementById("IG1").innerHTML=Course[a].Intergreated
+  document.getElementById("PHD1").innerHTML=Course[a].Phdcourse
+
+  }
+  else{
+    document.getElementById("logo1").src=Course[0].Logo
+    document.getElementById("UG1").innerHTML=""
+    document.getElementById("PG1").innerHTML=""
+    document.getElementById("IG1").innerHTML=""
+    document.getElementById("PHD1").innerHTML=""
+
+}
+}
+  function item2(a) {
+    var select1 = document.getElementById("select1").value;
+    if (a!=select1){
+    document.getElementById("logo2").src=Course[a].Logo
+    document.getElementById("UG2").innerHTML=Course[a].UGCourse
+    document.getElementById("PG2").innerHTML=Course[a].PGCourse
+    document.getElementById("IG2").innerHTML=Course[a].Intergreated
+    document.getElementById("PHD2").innerHTML=Course[a].Phdcourse
+
+
+}
+else{
+    document.getElementById("logo2").src=Course[0].Logo
+    document.getElementById("UG2").innerHTML=""
+    document.getElementById("PG2").innerHTML=""
+    document.getElementById("IG2").innerHTML=""
+    document.getElementById("PH2").innerHTML=""
+
+
+}
+}
+    </script>
+</body>
+
+</html>
+
